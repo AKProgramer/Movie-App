@@ -1,6 +1,10 @@
+import 'package:ecom_app/data/datasources/movieRemoteDataSource.dart';
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart';
 void main() {
+  Client apiClient=Client();
+  MovieRemoteDataSource dataSource=MovieRemoteDataSourceImpl(apiClient);
+  dataSource.getTrending();
   runApp(const MyApp());
 }
 
