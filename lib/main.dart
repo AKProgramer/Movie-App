@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 void main() {
   ApiClient apiClient=ApiClient(Client());
   MovieRemoteDataSource dataSource=MovieRemoteDataSourceImpl(apiClient );
+  print('hello');
   dataSource.getTrending();
   //dataSource.getPopular();
   //dataSource.getAvailableNow();
