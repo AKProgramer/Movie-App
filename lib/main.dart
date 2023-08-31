@@ -1,10 +1,15 @@
+import 'package:ecom_app/data/core/apiClient.dart';
 import 'package:ecom_app/data/datasources/movieRemoteDataSource.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 void main() {
-  Client apiClient=Client();
-  MovieRemoteDataSource dataSource=MovieRemoteDataSourceImpl(apiClient);
+  ApiClient apiClient=ApiClient(Client());
+  MovieRemoteDataSource dataSource=MovieRemoteDataSourceImpl(apiClient );
   dataSource.getTrending();
+  //dataSource.getPopular();
+  //dataSource.getAvailableNow();
+  //dataSource.getComingSoon();
   runApp(const MyApp());
 }
 
@@ -74,6 +79,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    /*Future<void> fetchData()async {
+      print("heel");
+      final url=  Uri.parse('https://api.themoviedb.org/3/trending/movie/day?api_key=78c7f0deed349d998ab8a1b7b75bcb93');
+      final response= await http.get(url);
+      if (response.statusCode == 200) {
+        print('Response body: ${response.body}');
+      } else {
+        print('Request failed with status: ${response.statusCode}');
+      }
+
+    }
+    fetchData()*/;
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
